@@ -1,12 +1,14 @@
 from unittest import TestCase
 from unittest.mock import Mock, call, patch
-from Tests_Python.test_cep.run import consulta_api_viacep
+from Tests_Python.run import consulta_api_viacep
+
 
 class TestMock(TestCase):
 
     @patch('exercicios_testes_unitarios.run.print')
     def test_medoto_print(self, mock_print):
     #action
+        mock_print.return_value = '89114456'
         consulta = consulta_api_viacep()
     #assertions
         self.assertEqual(consulta, 'Cep consultado com sucesso!')
